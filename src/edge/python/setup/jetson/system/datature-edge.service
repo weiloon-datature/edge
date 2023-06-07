@@ -1,0 +1,18 @@
+[Unit]
+Description=Datature Edge Daemon Script
+Wants=multi-user.target
+After=multi-user.target
+
+[Service]
+Environment=DISPLAY=:0.0
+EnvironmentFile=/etc/datature-edge.conf
+Environment=XAUTHORITY="$(/usr/bin/xauth info | grep Authority | awk '{print $3}')"
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash -c 'exec $DATATURE_EDGE_ROOT_DIR/datature-edge-run.sh'
+
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

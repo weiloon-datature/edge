@@ -1,0 +1,2 @@
+DATATURE_EDGE_ROOT_DIR=/home/cwlroda/projects/edge/
+DATATURE_EDGE_PYTHON_CONFIG=/home/cwlroda/projects/edge/src/edge/python/common/samples/config/config1.yaml

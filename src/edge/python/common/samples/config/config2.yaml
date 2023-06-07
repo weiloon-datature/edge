@@ -1,0 +1,45 @@
+name: test
+device: cpu
+
+inference:
+  detection_type: object_detection
+  bound_type: rectangle
+  model_format: tflite
+  model_architecture: mobilenet
+
+  model_path: /home/cwlroda/projects/edge/src/edge/python/common/samples/tflite/model.tflite
+  label_path: /home/cwlroda/projects/edge/src/edge/python/common/samples/label.txt
+
+  input_shape: [320, 320]
+  threshold: 0.7
+
+  bbox_format: [ymin, xmin, ymax, xmax]
+
+blocks:
+  input:
+    module: image
+    image_path: /home/cwlroda/projects/edge/src/edge/python/common/samples/image.png
+
+  preprocessors:
+    modules:
+      - transforms:
+          tools:
+            - resize:
+                shape: [320, 320]
+
+  postprocessors:
+    modules: []
+
+  output:
+    modules:
+      - opencv:
+          type: image_save
+          output_path: /home/cwlroda/projects/edge/bin/out/image.png
+
+debug:
+  active: false
+  log_folder: null
+
+profiling:
+  active: false
+  log_folder: null

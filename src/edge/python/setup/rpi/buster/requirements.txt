@@ -1,0 +1,16 @@
+colorama==0.3.7
+datature
+graceful-shutdown
+numpy==1.20.0
+opencv-python
+picamera==1.10
+Pillow==9.3.0
+prettyprinter
+protobuf==3.20.3
+pyyaml
+scipy
+tflite-runtime==2.11.0
+packages/onnxruntime-1.9.1-cp37-none-linux_armv7l.whl
+packages/tensorflow-2.4.0-cp37-none-linux_armv7l.whl
+packages/torch-1.7.0a0-cp37-cp37m-linux_armv7l.whl
+packages/torchvision-0.8.0a0-cp37-cp37m-linux_armv7l.whl

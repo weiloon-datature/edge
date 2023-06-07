@@ -1,0 +1,18 @@
+[Unit]
+Description=Datature Edge Daemon Script
+Wants=graphical.target
+After=graphical.target
+
+[Service]
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+EnvironmentFile=/etc/datature-edge.conf
+Type=simple
+RemainAfterExit=yes
+ExecStart=/bin/bash -c 'exec $DATATURE_EDGE_ROOT_DIR/datature-edge-run.sh'
+
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=graphical.target
